@@ -1,8 +1,9 @@
-\documentclass[10pt,draftcls]{IEEEtran}
+\documentclass[10pt,article]{IEEEtran}
 \usepackage{cite}
 \usepackage[cmex10]{amsmath}
 \usepackage{array}
 \usepackage{url}
+\usepackage{lmodern}
 \begin{document}
 \title{A Heuristic Coconut-based Algorithm}
 
@@ -28,8 +29,15 @@ Broad band networks, quality of service, WDM.
 \end{IEEEkeywords}
 
 \section{Introduction}
-Rappel sur SDN (a NICE way)
-Qu'est ce qui créé les erreurs dans les SDN networks (a NICE way, page 1 et 2)
+%Rappel sur SDN (a NICE way)
+%Qu'est ce qui créé les erreurs dans les SDN networks (a NICE way, page 1 et 2)
+
+Since years, the main problem in network maintenance is network debugging. Bugs are really difficult to spot with tools like ping, traceroute and SNMP agents, which are the most used to diagnose issues. \cite{...}\\ %27 dans leveraging ...
+Hopefully, this could change thanks to the deployment of Software-Defined Networks. SDN is an architecture developped to fix the mess in the control plane. It acts like a logically-centralized controller which manages switches by installing (or uninstalling) rules in them. The controller also read traffic statistics and respond to events. An handler is attached for each events and respond to its event by applying the routine establised by the network engineer. \\
+Thanks to SDN, it should be possible to automate troubleshooting, this will be seen in (TODO: how to reference to a next section ?).
+
+\section{SDN layering, the key to a better architecture}
+ % Expliquer ici la stack SDN (decomposition en layer) et donner l'intuition concernant la plus grande facilité pour remonter à l'origine d'un probleme.
 
 \section{Network Troubleshooting}
 Avant SDN
