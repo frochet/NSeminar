@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.9.27)  19 OCT 2013 20:04
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.9.27)  19 OCT 2013 21:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -234,6 +234,9 @@ LaTeX Warning: No \author given.
 
 LaTeX Warning: Citation `...' on page 1 undefined on input line 35.
 
+
+LaTeX Warning: Reference `layers' on page 1 undefined on input line 41.
+
 (./draft.bbl
 LaTeX Font Info:    Try loading font information for OML+lmm on input line 30.
  (/usr/share/texmf/tex/latex/lm/omllmm.fd
@@ -266,24 +269,25 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 1870 strings out of 495059
- 27997 string characters out of 3182030
- 78994 words of memory out of 3000000
- 5061 multiletter control sequences out of 15000+200000
+ 1871 strings out of 495059
+ 28005 string characters out of 3182030
+ 80994 words of memory out of 3000000
+ 5062 multiletter control sequences out of 15000+200000
  175957 words of font info for 103 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 27i,5n,22p,479b,355s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,5n,22p,864b,355s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dv
 ips/lm/lm-rmsc.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/sha
 re/texmf/fonts/type1/public/lm/lmbx9.pfb></usr/share/texmf/fonts/type1/public/l
 m/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/t
 exmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lm
 r17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/font
-s/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri8.pfb>
-Output written on draft.pdf (1 page, 217862 bytes).
+s/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb><
+/usr/share/texmf/fonts/type1/public/lm/lmri8.pfb>
+Output written on draft.pdf (1 page, 229897 bytes).
 PDF statistics:
- 46 PDF objects out of 1000 (max. 8388607)
- 33 compressed objects within 1 object stream
+ 50 PDF objects out of 1000 (max. 8388607)
+ 36 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

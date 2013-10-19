@@ -36,12 +36,14 @@ Since years, the main problem in network maintenance is network debugging. Bugs 
 Hopefully, this could change thanks to the deployment of Software-Defined Networks. SDN is an architecture developped to fix the mess in the control plane. It acts like a logically-centralized controller which manages switches by installing (or uninstalling) rules in them. The controller also read traffic statistics and respond to events. An handler is attached for each events and respond to its event by applying the routine establised by the network engineer. \\
 Thanks to SDN, it should be possible to automate troubleshooting, this will be seen in (TODO: how to reference to a next section ?).
 
-\section{SDN layering, the key to a better architecture}
+\section{SDN layering, the key used to a better troubleshooting}
  % Expliquer ici la stack SDN (decomposition en layer) et donner l'intuition concernant la plus grande facilité pour remonter à l'origine d'un probleme.
+Finding and solving network bugs are not the aim of SDN, but we can use it to re-think the way we troubleshoot networks.\\ The SDN architecture is decomposed into  layers, those layers can be represented in a two dimensionnal array. As you can see on Figure \ref{layers}, we have the two main layers called \textit{State layers} and \textit{Code layers}. The state layers hold a representation of the network's configuration for each parts of the network architecture. The code layers implement logic to maintain the mapping between two state layers. Each states layers should verify the equivalence properties, which means that each of them should correctly mapping every other state layer. The idea is that, for each policy, if the state layers are correctly mapped among each other, then the policy is  set and acts like it should.\\
+Thus, thanks to the SDN stack, we are able to first build a tool to check consistency between state layers in order to identify on which part of the network architecture a bug is happening.
 
 \section{Network Troubleshooting}
-Avant SDN
-Après SDN : voir page 2 a Nice way (challenge pour tester l'open flow) et les solutions qui existent)
+Expliquer ici par rapport au layer\\
+voir page 2 a Nice way (challenge pour tester l'open flow) et les solutions qui existent)
 
 \section{}
 
