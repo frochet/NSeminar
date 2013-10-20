@@ -3,9 +3,11 @@
 \usepackage[cmex10]{amsmath}
 \usepackage{array}
 \usepackage{url}
+\usepackage{graphicx}
+\usepackage{graphics}
 \usepackage{lmodern}
 \begin{document}
-\title{A Heuristic Coconut-based Algorithm}
+\title{An Overview of Network Troubleshooting With SDN}
 
 %\author{\IEEEauthorblockN{Knop Thibaut}
 %\IEEEauthorblockA{Ecole polytechnique de Louvain\\
@@ -21,11 +23,11 @@
 
 \maketitle
 \begin{abstract}
-KIKOU
+TODO
 \end{abstract}
 
 \begin{IEEEkeywords}
-Broad band networks, quality of service, WDM.
+TODO
 \end{IEEEkeywords}
 
 \section{Introduction}
@@ -39,17 +41,22 @@ Thanks to SDN, it should be possible to automate troubleshooting, this will be s
 \section{SDN layering, the key used to a better troubleshooting}
  % Expliquer ici la stack SDN (decomposition en layer) et donner l'intuition concernant la plus grande facilité pour remonter à l'origine d'un probleme.
 Finding and solving network bugs are not the aim of SDN, but we can use it to re-think the way we troubleshoot networks.\\ The SDN architecture is decomposed into  layers, those layers can be represented in a two dimensionnal array. As you can see on Figure \ref{layers}, we have the two main layers called \textit{State layers} and \textit{Code layers}. The state layers hold a representation of the network's configuration for each parts of the network architecture. The code layers implement logic to maintain the mapping between two state layers. Each states layers should verify the equivalence properties, which means that each of them should correctly mapping every other state layer. The idea is that, for each policy, if the state layers are correctly mapped among each other, then the policy is  set and acts like it should.\\
-Thus, thanks to the SDN stack, we are able to first build a tool to check consistency between state layers in order to identify on which part of the network architecture a bug is happening.
-
+Thus, thanks to the SDN stack, we are able to first build a tool to check consistency between state layers in order to identify on which part of the network architecture a bug is happening. \\
+When the layer is identified, an other tool take over to localize the issue inside the code layer. We will see in (TODO: indicates next section) which kind of tools could be used to handle that.
+\begin{figure}
+\includegraphics[scale=0.65]{layers.png}
+\label{layers}
+\caption{SDN architecture}
+\end{figure}
 \section{Network Troubleshooting}
 Expliquer ici par rapport au layer\\
+Reference vers les outils develope dans d'autres articles + explications sommaire de ceux-ci \\
 voir page 2 a Nice way (challenge pour tester l'open flow) et les solutions qui existent)
 
 \section{}
 
 \section{Conclusion}
-
-
+TODO
 \nocite{*}
 \bibliographystyle{IEEEtran}
 \bibliography{IEEEabrv,draft}
