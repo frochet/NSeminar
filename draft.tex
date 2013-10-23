@@ -1,4 +1,4 @@
-\documentclass[10pt,article]{IEEEtran}
+ \documentclass[10pt,article]{IEEEtran}
 \usepackage{cite}
 \usepackage[cmex10]{amsmath}
 \usepackage{array}
@@ -43,15 +43,30 @@ Thanks to SDN, it should be possible to automate troubleshooting, this will be s
 Finding and solving network bugs are not the aim of SDN, but we can use it to re-think the way we troubleshoot networks.\\ The SDN architecture is decomposed into  layers, those layers can be represented in a two dimensionnal array. As you can see on Figure \ref{layers}, we have the two main layers called \textit{State layers} and \textit{Code layers}. The state layers hold a representation of the network's configuration for each parts of the network architecture. The code layers implement logic to maintain the mapping between two state layers. Each states layers should verify the equivalence properties, which means that each of them should correctly mapping every other state layer. The idea is that, for each policy, if the state layers are correctly mapped among each other, then the policy is  set and acts like it should.\\
 Thus, thanks to the SDN stack, we are able to first build a tool to check consistency between state layers in order to identify on which part of the network architecture a bug is happening. \\
 When the layer is identified, an other tool take over to localize the issue inside the code layer. We will see in (TODO: indicates next section) which kind of tools could be used to handle that.
+\begin{itemize}
+\item explication graphique
+\item plus en détail finding the code layer and finding within the code layer. (summary)
+\end{itemize}
 \begin{figure}
 \includegraphics[scale=0.65]{layers.png}
 \label{layers}
 \caption{SDN architecture}
 \end{figure}
-\section{Network Troubleshooting}
+\section{Network Troubleshooting - Tools}
+
+\subsection{tool1 - 1 subsection par tool}
+\begin{itemize}
+\item NDB - présenter un outil pour finding the code layer
+\item Veriflow
+\item Soft
+\item Nice
+\item FlowChecker ?
+\end{itemize}
 Expliquer ici par rapport au layer\\
-Reference vers les outils develope dans d'autres articles + explications sommaire de ceux-ci \\
+
 voir page 2 a Nice way (challenge pour tester l'open flow) et les solutions qui existent)
+
+
 
 \section{}
 
