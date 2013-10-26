@@ -7,19 +7,14 @@
 \usepackage{graphics}
 \usepackage{lmodern}
 \begin{document}
-\title{An Overview of Network Troubleshooting With SDN}
+\title{Automated troubleshooting toolset for SDNs}
 
-%\author{\IEEEauthorblockN{Knop Thibaut}
-%\IEEEauthorblockA{Ecole polytechnique de Louvain\\
-%Université Catholique de Louvain\\
-%Louvain-la-Neuve, Belgique\\
-%Email: thibaut.knop@student.uclouvain.be}
-%\and
-%\IEEEauthorblockN{Rochet Florentin}
-%\IEEEauthorblockA{Ecole polytechnique de Louvain\\
-%Université Catholique de Louvain\\
-%Louvain-la-Neuve, Belgique\\
-%Email: florentin.rochet@student.uclouvain.be}}
+\author{\IEEEauthorblockN{Knop Thibaut, Rochet Florentin\\}
+\IEEEauthorblockA{EPL,
+UCL\\
+Louvain-la-Neuve, Belgique\\
+\{thibaut.knop,florentin.rochet\}@student.uclouvain.be}}
+
 
 \maketitle
 \begin{abstract}
@@ -31,12 +26,14 @@ TODO
 \end{IEEEkeywords}
 
 \section{Introduction}
-%Rappel sur SDN (a NICE way)
-%Qu'est ce qui créé les erreurs dans les SDN networks (a NICE way, page 1 et 2)
 
-Since years, the main problem in network maintenance is network debugging. Bugs are really difficult to spot with tools like ping, traceroute and SNMP agents, which are the most used to diagnose issues. \cite{...}\\ %27 dans leveraging ...
-Hopefully, this could change thanks to the deployment of Software-Defined Networks. SDN is an architecture developped to fix the mess in the control plane. It acts like a logically-centralized controller which manages switches by installing (or uninstalling) rules in them. The controller also read traffic statistics and respond to events. An handler is attached for each events and respond to its event by applying the routine establised by the network engineer. \\
-Thanks to SDN, it should be possible to automate troubleshooting, this will be seen in (TODO: how to reference to a next section ?).
+
+For many years, the debugging as always been one of the major concerns in network maintenance. In order to localize problems into the network, operators usually use a narrow toolset, composed of traditional tools as ping, trace route and SNMP agents\cite{zeng2012automatic}.\\
+Hopefully, this difficult and time-consuming\cite{zeng2012automatic} process could change, given the deployment of Software-Defined Networks. In a nutshell, SDNs are based on a separation between control- and data planes, which offer the opportunity of programmable networks\cite{mckeown2008openflow}. Those SDNs are composed of a network of switches managed by a logically-centralized controller, whose role is to (un)install rules into the flow table of the switches, to read traffic statistics and respond to the network activity.\\
+However, and because SDNs allows different operators, developers to dynamically program the same network, the complexity of software will increase\cite{Sherwood:2010:PNT:1924943.1924969} and potentially the numbers of bugs.
+To minimise the trade-off between introducing new functionality and  increase the number of bugs in the network, there is a serious need for a complete and effective automated testing toolset, allowing the admins to focus on fixing the issues instead of localizing them. In traditional network architecture, it is almost impossible to create such an automated test suite, due to the complexity of \textit{knowing the operator's intent} and \textit{checking network behavior against intent}\cite{Heller:2013:LSL:2491185.2491197} (for more information about how traditional networks could be extended to support automated troubleshooting, please refer to \cite{Heller:2013:LSL:2491185.2491197}).\\
+As we will explain, we use the different layers of the SDN stack to review the available tools for automated troubleshooting. Note that the methodology and the structure of this paper is influenced from the one used in\cite{Heller:2013:LSL:2491185.2491197}. It indeed seems the better way to articulate and present the different tools destined to localize the problems and their cause in an automated way.
+The paper is structured as follow : first we recall the different layers of the SDN stack, and how it can be leveraged to provide automated troubleshooting for SDNs, then we present different existing tools by positioning them regards to the SDN layering, and we eventually conclude.
 
 \section{SDN layering, the key used to a better troubleshooting}
  % Expliquer ici la stack SDN (decomposition en layer) et donner l'intuition concernant la plus grande facilité pour remonter à l'origine d'un probleme.
@@ -69,7 +66,7 @@ voir page 2 a Nice way (challenge pour tester l'open flow) et les solutions qui 
 
 \section{Conclusion}
 TODO
-\nocite{*}
+
 \bibliographystyle{IEEEtran}
 \bibliography{IEEEabrv,draft}
 
