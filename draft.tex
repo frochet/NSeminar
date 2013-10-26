@@ -29,7 +29,7 @@ TODO
 \section{Introduction}
 
 
-For many years, the debugging as always been one of the major concerns in network maintenance. In order to localize problems into the network, operators usually use a narrow toolset, composed of traditional tools as \verb@ping@, \verb@traceroute@ and \verb@SNMP@ agents\cite{zeng2012automatic}.\\
+For many years, the debugging has always been one of the major concerns in network maintenance. In order to localize problems into the network, operators usually use a narrow toolset, composed of traditional tools as \verb@ping@, \verb@traceroute@ and \verb@SNMP@ agents\cite{zeng2012automatic}.\\
 Hopefully, this difficult and time-consuming\cite{zeng2012automatic} process could change, given the deployment of Software-Defined Networks. In a nutshell, SDNs are based on a separation between control- and data planes, which offer the opportunity of programmable networks\cite{mckeown2008openflow}. Those SDNs are composed of a network of switches managed by a logically-centralized controller, whose role is to (un)install rules into the flow table of the switches, to read traffic statistics and respond to the network activity.\\
 However, and because SDNs allows different operators, developers to dynamically program the same network, the complexity of software will increase\cite{Sherwood:2010:PNT:1924943.1924969} and potentially the numbers of bugs.
 To minimise the trade-off between introducing new functionality and  increase the number of bugs in the network, there is a serious need for a complete and effective automated testing toolset, allowing the admins to focus on fixing the issues instead of localizing them. In traditional network architecture, it is almost impossible to create such an automated test suite, due to the complexity of \textit{knowing the operator's intent} and \textit{checking network behavior against intent}\cite{Heller:2013:LSL:2491185.2491197} (for more information about how traditional networks could be extended to support automated troubleshooting, please refer to \cite{Heller:2013:LSL:2491185.2491197}).\\
@@ -39,19 +39,26 @@ The paper is structured as follow : first we recall the different layers of the 
 \section{SDN layering, the key used to a better troubleshooting}
  % Expliquer ici la stack SDN (decomposition en layer) et donner l'intuition concernant la plus grande facilité pour remonter à l'origine d'un probleme.
 Finding and solving network bugs are not the aim of SDN, but we can use it to re-think the way we troubleshoot networks.\\ The SDN architecture is decomposed into  layers, those layers can be represented in a two dimensionnal array. As you can see on Figure \ref{layers}, we have the two main layers called \textit{State layers} and \textit{Code layers}. The state layers hold a representation of the network's configuration for each parts of the network architecture. The code layers implement logic to maintain the mapping between two state layers. Each states layers should verify the equivalence properties, which means that each of them should correctly mapping every other state layer. The idea is that, for each policy, if the state layers are correctly mapped among each other, then the policy is  set and acts like it should.\\
-Thus, thanks to the SDN stack, we are able to first build a tool to check consistency between state layers in order to identify on which part of the network architecture a bug is happening. \\
-When the layer is identified, an other tool take over to localize the issue inside the code layer. We will see in (TODO: indicates next section) which kind of tools could be used to handle that.
-\begin{itemize}
-\item explication graphique
-\item plus en détail finding the code layer and finding within the code layer. (summary)
-\end{itemize}
+On the Figure \ref{layers}, you have the following elements. \\
+\textbf{Policy} - Policies are set up by the network administrator to configure the Logical View. These policies can be routing, access control or QoS policies. They are written inside a control application. See \cite{...} for exemple.
+\\
+\textbf{Logical View} - Abstract representation of the network which aims to make things easier for the control application to create policies. A mapping between the Logical View and one or more Physical View are done by Network Hypervisor.\\
+\textbf{Physical View} - This is a correspondance with the real network element, a representation of it handled by the network OS. The protocol used to configure the network element is one like OpenFlow \cite{...https://www.opennetworking.org/}. A physical View has thus a one-to-one mapping with a real network element.
+\\
+\textbf{Device State} - State of the network element maintened by its firmware.
+\\
+\textbf{Hardware} - Network element. \\
+
+Thanks to the SDN stack, one can first build a tool to check consistency between state layers in order to identify on which part of the network architecture a bug is happening (in which \textit{code layer}). Then, when the layer is identified, an other tool take over to localize the issue inside the code layer. We will see in section \ref{Network Troubleshooting - Tools} which kind of tools could be used to handle this bug hunting inside the code layer.
+
 \begin{figure}
+\centering
 \includegraphics[scale=0.65]{layers.png}
 \label{layers}
-\caption{SDN architecture}
+\caption{SDN architecture - This image come from \cite{Heller:2013:LSL:2491185.2491197}}
 \end{figure}
 \section{Network Troubleshooting - Tools}
-
+\label{Network Troubleshooting - Tools}
 \subsection{Network Debugger (NDB)}
 
 \subsection{VeriFlow}
