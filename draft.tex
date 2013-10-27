@@ -54,8 +54,9 @@ Thanks to the SDN stack, one can first build a tool to check consistency between
 \centering
 \includegraphics[scale=0.65]{layers.png}
 \label{layers}
-\caption{SDN architecture - This image come from \cite{Heller:2013:LSL:2491185.2491197}}
+\caption{SDN architecture\protect\footnotemark}
 \end{figure}
+\footnotetext{Source : \cite{Heller:2013:LSL:2491185.2491197}}
 \section{Network Troubleshooting - Tools}
 \label{Network Troubleshooting - Tools}
 \subsection{Network Debugger (NDB)}
@@ -70,7 +71,8 @@ As limitations, we can note that presently, VeriFlow only checks for reachabilit
 \subsection{NICE - \textit{No Bugs in Controller Execution}}
 
 Following the SDN layering technique, once the erroneous 2-layers correspondance has been determined, another tool can be used to spot the bug more precisely, either in the controller software or in the firmware running on the switches.\\
-The NICE tool is used to produce traces leading to a bug, by systematically exploring the set of possible states of the system (including controller, switches and hosts) and checking them regards to some network invariants\cite{Canini:2012:NWT:2228298.2228312}. What makes this contribution to OpenFlow verification a real asset is its ability to deal with a unbound space state. The real challenge for testing openFlow applications is the scalability.
+The NICE tool is used to produce traces leading to a bug, by systematically exploring the set of possible states of the system (including controller, switches and hosts) and checking them regarding to some network invariants\cite{Canini:2012:NWT:2228298.2228312}. What makes this contribution to OpenFlow applications verification a real asset is its ability to deal with a very large space state. The real challenge for testing openFlow applications is the scalability related to its wide environment : there is a potentially unbound state space, due to a large space of switch state, of inputs packets and of event orderings\cite{Canini:2012:NWT:2228298.2228312}. To handle that situation, developers can create abstractions of their application and use traditional model checking techniques to prove the properties about the system. Example tools are SPIN and JavaPathFinder, whose the mains limitations are respectively the complexity or writing the model due to the domain-specific information and a significant performance slackening\cite{Peresini:2011:YOA:2079327.2079345}. Moreover, both are suffering from some state-space explosion.\\
+
 
 \subsection{FlowChecker}
 
