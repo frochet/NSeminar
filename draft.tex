@@ -76,10 +76,9 @@ Following the SDN layering technique, once the erroneous 2-layers correspondance
 The NICE tool is used to produce traces leading to a bug, by systematically exploring the set of possible states of the system (including controller, switches and hosts) and checking them regarding to some network invariants\cite{Canini:2012:NWT:2228298.2228312}. What makes this contribution to OpenFlow applications verification a real asset is its ability to deal with a very large space state. The real challenge for testing openFlow applications is the scalability related to its wide environment : there is a potentially unbound state space, due to a large space of switch state, of inputs packets and of event orderings\cite{Canini:2012:NWT:2228298.2228312}. To handle that situation, developers can create abstractions of their application and use traditional model checking techniques to prove the properties about the system. Example tools are SPIN and JavaPathFinder, whose the mains limitations are respectively the complexity or writing the model due to the domain-specific information and a significant performance slackening\cite{Peresini:2011:YOA:2079327.2079345}. Moreover, both are suffering from some state-space explosion.\\
 NICE extends traditional model checking with symbolic execution of the event-handler. It identifies therefore equivalence classes of packets that cover all code paths of the application. NICE combines also specific search strategies allowing it to reduce the state space by up to 20 times\cite{Canini:2012:NWT:2228298.2228312}.
 
-
 \subsection{FlowChecker}
 
-
+The following tool is particularly adapted for verifying consistency between switches and controller across different OpenFlow federated infrastructures. FlowChecker, based on the ConfigChecker tool, provides a way to detect misconfigurations in the FlowTable of the switches.
 
 
 \section{Conclusion}
