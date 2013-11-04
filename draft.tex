@@ -7,6 +7,7 @@
 \usepackage{graphics}
 \usepackage{verbatim}
 \usepackage{lmodern}
+\usepackage{flushend}
 \begin{document}
 \title{Automated troubleshooting toolset for SDNs}
 
@@ -19,7 +20,7 @@ Louvain-la-Neuve, Belgique\\
 
 \maketitle
 \begin{abstract}
-TODO
+In this paper, we propose a methodological review of the existing tools designed for Software-Defined networks troubleshooting. This review is organized using the SDN layering architecture, and aims to show the possibility of an automated localization of the bugs in the different layers of SDN. The toolset presented here allows administrators to more focus on fixing than localizing issues. We will go through the layers by choosing the most significant and relevant tools for each (pair of) layer(s), regarding the other existing tools : NDB for spotting incoherences between policies and their effects, VeriFlow for verifying invariants in real-time, SOFT for spotting bugs in OpenFlow switches configuration, NICE either for the switch firmware of the controller software and FlowChecker supporting verification for different OpenFlow federated infrastructures.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -70,7 +71,7 @@ VeriFlow acts as a proxy in between the SDN controller and the switches and this
 As limitations, we can note that presently, VeriFlow only checks for reachability invariants, and that it is not suitable for multiple/distributed controller \cite{Khurshid:2013:VVN:2482626.2482630}.
 
 \subsection{SOFT - \textit{Systematic OpenFlow Testing}}
-SOFT is a tool which aims to test the interoperability between OpenFlow switches. On our layering architecure, the OpenFlow protocol appears in the Physical View. SOFT has been designed to identify wrong behaviors of different switches running different implementation of the OpenFlow protocol. Thus, SOFT compares different Physical View of different switches. But SOFT can do more than that. It can also help to find inconsistency in the layers below the Physical Layers. SOFT can be used to check the consistency between the \textit{state layer} of Device State and the \textit{state layer} of Hardware. To see more details of how it works, refer to its paper \cite{SOFT}
+SOFT is a tool which aims to test the interoperability between OpenFlow switches. On our layering architecure, the OpenFlow protocol appears in the Physical View. SOFT has been designed to identify wrong behaviors of different switches running different implementation of the OpenFlow protocol. Thus, SOFT compares different Physical View of different switches. But SOFT can do more than that. It can also help to find inconsistency in the layers below the Physical Layers. SOFT can be used to check the consistency between the \textit{state layer} of Device State and the \textit{state layer} of Hardware. To see more details of how it works, refer to its paper \cite{SOFT}.
 
 \subsection{NICE - \textit{No Bugs in Controller Execution}}
 
