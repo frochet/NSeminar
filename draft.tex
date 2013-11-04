@@ -23,7 +23,7 @@ TODO
 \end{abstract}
 
 \begin{IEEEkeywords}
-TODO
+OpenFlow, SDN, Troubleshooting, Layer, Controller, Consistency, Model-checking, Verification
 \end{IEEEkeywords}
 
 \section{Introduction}
@@ -81,12 +81,15 @@ NICE extends traditional model checking with symbolic execution of the event-han
 \subsection{FlowChecker}
 
 The following tool is particularly adapted for verifying consistency between switches and controller across different OpenFlow federated infrastructures. FlowChecker, based on the ConfigChecker tool, provides a way to detect misconfigurations in the FlowTable of the switches\cite{canini2011automating}. For that goal, FlowChecker models the entire network as a state machine, which allows it to use the BDD-based (Binary Decision Diagram) model checker to verify network properties described by CTL (Computational Tree Logic) queries\cite{Al-Shaer:2010:FCA:1866898.1866905}.\\
-To support inter-federated infrastructure, FlowChecker acts as a Master Controller that communicates with other controllers and switches. Those controllers, if interested to the experiment, send their FlowTable entires to the master controller, that verifies for inconsistencies, with a quadratic time function of the number of OpenFlow switches\cite{Al-Shaer:2010:FCA:1866898.1866905}.
+To support inter-federated infrastructure, FlowChecker acts as a Master Controller that communicates with other controllers and switches. Those controllers, if interested to the experiment, send their FlowTable entries to the master controller, that verifies for inconsistencies, with a quadratic time function of the number of OpenFlow switches\cite{Al-Shaer:2010:FCA:1866898.1866905}.
 
 \section{Conclusion}
 
+This paper has been dedicated to troubleshooting tools in Software-Defined-Network. The methodology used to present them is inspired from the layered architecture of the SDN stack, where each tool has a role to play in at least one layer. From the definition of the different layers, we have introduced tools which aims to find the incoherence between two \textit{state layer}. We introduced a Network Debugger (NDB) designed to find incoherences between policies and their effects. VeriFlow aims at verify invariant between the policy and the Device State. VeryFlow does some model checking technics between the SDN controller and the switches.\\
+We also have introduced tools used to find the bug when the incoherence between two \textit{state layer} is identified. These tools operate inside the \textit{code layer} which is for recall, the implementation logic to maintain the mapping between two \textit{state layer}. These tools introduced are SOFT and NICE. SOFT acts on the Physical View and identify incoherence in the OpenFlow implementation between switches of different constructors. NICE can acts either on the controller software or in the switch firmware, it depends where the inconsistency is found by an other tools. \\
+The main idea of this paper was to bring an overview of troubleshooting tools in SDNs and how they can works together. As we have explained, thanks to SDN stack, the job can be easily split and several tools can be used together to spot bugs. 
 
-\bibliographystyle{IEEEtran}
+\bibliographystyle{IEEEtranS}
 \bibliography{IEEEabrv,draft}
 
 \end{document}
