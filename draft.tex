@@ -20,7 +20,7 @@ Louvain-la-Neuve, Belgique\\
 
 \maketitle
 \begin{abstract}
-In this paper, we propose a methodological review of the existing tools designed for Software-Defined networks troubleshooting. This review is organized using the SDN layering architecture, and aims to show the possibility of an automated localization of the bugs in the different layers of SDN. The toolset presented here allows administrators to more focus on fixing than localizing issues. We will go through the layers by choosing the most significant and relevant tools for each (pair of) layer(s), regarding other existing tools : NDB for spotting incoherences between policies and their effects, VeriFlow for verifying invariants in real-time, SOFT for spotting bugs in OpenFlow switches configuration, NICE either for the switch firmware of the controller software and FlowChecker supporting verification for different OpenFlow federated infrastructures.
+In this paper, we propose a methodological review of the existing tools designed for Software-Defined networks troubleshooting. This review is organized using the SDN layering architecture, and aims to show the possibility of an automated localization of the bugs in the different layers of SDN. The toolset presented here allows administrators to more focus on fixing than localizing issues. We will go through the layers by choosing the most significant and relevant tools for each (pair of) layer(s) we are considering, regarding other existing tools : NDB for spotting incoherences between policies and their effects, VeriFlow for verifying invariants in real-time, SOFT for spotting bugs in OpenFlow switches configuration, NICE either for the switch firmware of the controller software and FlowChecker supporting verification for different OpenFlow federated infrastructures.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -38,7 +38,7 @@ The paper is structured as follow : first we recall the different layers of the 
 
 \section{SDN layering, the key used to an automated troubleshooting}\label{layering}
  % Expliquer ici la stack SDN (decomposition en layer) et donner l'intuition concernant la plus grande facilité pour remonter à l'origine d'un probleme.
-Finding and solving network bugs are not the aim of SDN, but we can use it to re-think the way we troubleshoot networks.\\ The SDN architecture is decomposed into  layers, those layers can be represented in a two dimensionnal array. As you can see on Figure \ref{layers}, we have the two main layers called \textit{State layers} and \textit{Code layers}. The state layers hold a representation of the network's configuration for each parts of the network architecture. The code layers implement logic to maintain the mapping between two state layers. Each states layers should verify the equivalence properties, which means that each of them should correctly mapping every other state layer. The idea is that, for each policy, if the state layers are correctly mapped among each other, then the policy is  set and acts like it should.\\
+Finding and solving network bugs are not the aim of SDN, but we can use it to re-think the way we troubleshoot networks.\\ The SDN architecture is decomposed into  layers, those layers can be represented in a two dimensionnal array. As you can see on Figure \ref{layers}, we have the two main layers called \textit{State layers} and \textit{Code layers}. The state layers hold a representation of the network configuration for each parts of the network architecture. The code layers implement logic to maintain the mapping between two state layers. Each state layers should verify the equivalence properties, which means that each of them should correctly mapping every other state layer. The idea is that, for each policy, if the state layers are correctly mapped among each other, then the policy is  set and acts like it should.\\
 On the Figure \ref{layers}, you have the following elements:\\
 \textbf{Policy} - Policies are set up by the network administrator to configure the Logical View. These policies can be routing, access control or QoS policies. They are written inside a control application. See \cite{OpenStack_Quantum} for exemple.
 \\
@@ -54,8 +54,7 @@ Thanks to the SDN stack, one can first build a tool to check consistency between
 \begin{figure}
 \centering
 \includegraphics[scale=0.60]{layers.png}
-\label{layers}
-\caption{SDN architecture\protect\footnotemark}
+\caption{SDN architecture\label{layers}\protect\footnotemark}
 \end{figure}
 \footnotetext{Source : \cite{Heller:2013:LSL:2491185.2491197}}
 \section{Network Troubleshooting - Tools}
@@ -71,7 +70,7 @@ VeriFlow acts as a proxy in between the SDN controller and the switches and this
 As limitations, we can note that presently, VeriFlow only checks for reachability invariants, and that it is not suitable for multiple/distributed controller \cite{Khurshid:2013:VVN:2482626.2482630}.
 
 \subsection{SOFT - \textit{Systematic OpenFlow Testing}}
-SOFT is a tool which aims to test the interoperability between OpenFlow switches. On our layering architecure, the OpenFlow protocol appears in the Physical View. SOFT has been designed to identify wrong behaviors of different switches running different implementation of the OpenFlow protocol. Thus, SOFT compares different Physical View of different switches. But SOFT can do more than that. It can also help to find inconsistency in the layers below the Physical Layers. SOFT can be used to check the consistency between the \textit{state layer} of Device State and the \textit{state layer} of Hardware. To see more details of how it works, refer to its paper \cite{SOFT}.
+SOFT is a tool which aims to test the interoperability between OpenFlow switches. On our layering architecure, the OpenFlow protocol appears in the Physical View. SOFT has been designed to identify wrong behaviors of different switches running different implementation of the OpenFlow protocol. Thus, SOFT compares different Physical View of different switches. But SOFT can do more than that. It can also help to find inconsistency in the layers below the Physical Layers. SOFT can be used to check the consistency between the \textit{state layer} of Device State and the \textit{state layer} of Hardware. To see more details of how it works, refer to its dedicated paper \cite{SOFT}.
 
 \subsection{NICE - \textit{No Bugs in Controller Execution}}
 
@@ -81,7 +80,7 @@ NICE extends traditional model checking with symbolic execution of the event-han
 
 \subsection{FlowChecker}
 
-The following tool is particularly adapted for verifying consistency between switches and controller across different OpenFlow federated infrastructures. FlowChecker, based on the ConfigChecker tool, provides a way to detect misconfigurations in the FlowTable of the switches\cite{canini2011automating}. For that goal, FlowChecker models the entire network as a state machine, which allows it to use the BDD-based (Binary Decision Diagram) model checker to verify network properties described by CTL (Computational Tree Logic) queries\cite{Al-Shaer:2010:FCA:1866898.1866905}.\\
+The following tool is particularly adapted for verifying consistency between switches and controller across different OpenFlow federated infrastructures. It operates in the the Physical View, just as SOFT does. FlowChecker, based on the ConfigChecker tool, provides a way to detect misconfigurations in the FlowTable of the switches\cite{canini2011automating}. For that goal, FlowChecker models the entire network as a state machine, which allows it to use the BDD-based (Binary Decision Diagram) model checker to verify network properties described by CTL (Computational Tree Logic) queries\cite{Al-Shaer:2010:FCA:1866898.1866905}.\\
 To support inter-federated infrastructure, FlowChecker acts as a Master Controller that communicates with other controllers and switches. Those controllers, if interested to the experiment, send their FlowTable entries to the master controller, that verifies for inconsistencies, with a quadratic time function of the number of OpenFlow switches\cite{Al-Shaer:2010:FCA:1866898.1866905}.
 
 \section{Conclusion}
